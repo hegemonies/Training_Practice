@@ -1,0 +1,9 @@
+qsub task_1node_6core_n1024.job
+qsub task_2node_6core_n1024.job
+qsub task_4node_6core_n1024.job
+qsub task_1node_6core_n2048.job
+qsub task_2node_6core_n2048.job
+qsub task_4node_6core_n2048.job
+qsub task_1node_6core_n4096.job
+qsub task_2node_6core_n4096.job
+qsub task_4node_6core_n4096.job
