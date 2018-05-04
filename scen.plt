@@ -31,3 +31,10 @@ plot 'result_4nodes/result_1024_Speedup.txt' using 1:2 with linespoints lw 2 lt 
     'result_4nodes/result_2048_Speedup.txt' using 1:2 with linespoints lw 2 lt rgb 'blue' title 'N=2048', \
     'result_4nodes/result_4096_Speedup.txt' using 1:2 with linespoints lw 2 lt rgb 'green' title 'N=4096', \
     'linear_Speedup.txt' using 1:2 with linespoints lw 2 lt rgb 'black' title 'linear'
+
+set output 'result_graphs/8nodes.png'
+set title '8 node'
+plot 'result_8nodes/result_1024_Speedup.txt' using 1:2 with linespoints lw 2 lt rgb 'red' title 'N=1024', \
+    'result_8nodes/result_2048_Speedup.txt' using 1:2 with linespoints lw 2 lt rgb 'blue' title 'N=2048', \
+    'result_8nodes/result_4096_Speedup.txt' using 1:2 with linespoints lw 2 lt rgb 'green' title 'N=4096', \
+    'linear_Speedup.txt' using 1:2 with linespoints lw 2 lt rgb 'black' title 'linear'

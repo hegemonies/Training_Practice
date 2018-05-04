@@ -1,0 +1,7 @@
+#PBS -N mpi_test
+#PBS -q release
+#PBS -l nodes=8:ppn=2
+#PBS -j oe
+
+cd $PBS_O_WORKDIR
+mpiexec ./main1024
