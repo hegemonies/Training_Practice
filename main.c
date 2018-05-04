@@ -40,7 +40,6 @@ void dgemm_parallel(double *a, double *b, double *c, int n, int st, int fn)
 void init_matrix(double *a, double *b, double *c, int n)
 {
 	int i, j, k;
-
 	for (i = 0; i < n; i++) {
 		for (j = 0; j < n; j++) {
 			for (k = 0; k < n; k++) {
@@ -78,16 +77,16 @@ int main(int argc, char *argv[])
 
 	int rank;
 	int size;
-
 	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
+    int st = (N / size) * rank;
+    int fn = ((rank + 1) == size) ? N : (st + (N / size));
 
     double t_all[size];
 
     init_matrix(A, B, C, N);
 
-    int st = (N / size) * rank;
-    int fn = ((rank + 1) == size) ? N : (st + (N / size));
+
 
     t -= wtime();
 
@@ -136,7 +135,9 @@ int main(int argc, char *argv[])
     }
 
 	MPI_Finalize();
-
+    free(A);
+    free(B);
+    free(C);
 
 	return 0;
 }
